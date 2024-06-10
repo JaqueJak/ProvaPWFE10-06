@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Station - História do Computador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Quiz sobre História do Computador</h1>
+        <nav>
+            <ul>
+                <li><a href="../login/index.html">Login</a></li>
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../music/music.html">Music Station</a></li>
+                <li><a href="../quiz/quiz.html">Quiz Station</a></li>
+                <li><a href="../game/game.html">Game Station</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="quiz">
+            <div id="question"></div>
+            <div id="options"></div>
+            <button id="submitBtn">Submit</button>
+            <p id="result"></p>
+        </div>
+    </main>
+
+    <script>
+       const questions = [
+            {
+                question: "Quem é considerado o pai da computação?",
+                options: ["Alan Turing", "Charles Babbage", "Ada Lovelace", "John von Neumann"],
+                answer: "Charles Babbage"
+            },
+            {
+                question: "Qual foi o primeiro computador eletrônico digital?",
+                options: ["ENIAC", "UNIVAC", "IBM 650", "Colossus"],
+                answer: "ENIAC"
+            },
+            {
+                question: "Em que ano foi lançado o primeiro computador pessoal IBM PC?",
+                options: ["1978", "1981", "1984", "1986"],
+                answer: "1981"
+            },
+            {
+                question: "Qual foi o primeiro sistema operacional amplamente utilizado?",
+                options: ["Windows", "Linux", "MS-DOS", "Unix"],
+                answer: "MS-DOS"
+            },
+            {
+                question: "Quem é conhecido por criar a linguagem de programação C?",
+                options: ["Dennis Ritchie", "Bill Gates", "Steve Jobs", "Linus Torvalds"],
+                answer: "Dennis Ritchie"
+            },
+            {
+                question: "Qual é o nome do primeiro navegador web?",
+                options: ["Internet Explorer", "Netscape Navigator", "Mozilla Firefox", "Google Chrome"],
+                answer: "Netscape Navigator"
+            },
+            {
+                question: "Em que ano foi lançado o primeiro iPhone?",
+                options: ["2005", "2007", "2009", "2010"],
+                answer: "2007"
+            },
+            {
+                question: "Qual é o nome do primeiro computador digital programável?",
+                options: ["ENIAC", "UNIVAC", "Z3", "Colossus"],
+                answer: "Z3"
+            },
+            {
+                question: "Quem é considerado o pai da internet?",
+                options: ["Tim Berners-Lee", "Vint Cerf", "Al Gore", "Ray Tomlinson"],
+                answer: "Vint Cerf"
+            },
+            {
+                question: "Qual é o nome do primeiro computador pessoal?",
+                options: ["Apple I", "IBM PC", "Altair 8800", "Commodore PET"],
+                answer: "Altair 8800"
+            }
+        ];
+
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const submitBtn = document.getElementById('submitBtn');
+        const resultElement = document.getElementById('result');
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option);
+                optionsElement.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selectedOption) {
+            const currentQuestion = questions[currentQuestionIndex];
+            if (selectedOption === currentQuestion.answer) {
+                resultElement.textContent = "Resposta correta!";
+            } else {
+                resultElement.textContent = "Resposta incorreta. Tente novamente!";
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                questionElement.textContent = '';
+                optionsElement.innerHTML = '';
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        function displayResult() {
+            resultElement.textContent = `Você acertou ${score} de ${questions.length} questões.`;
+            submitBtn.style.display = 'none';
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>

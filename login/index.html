@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login com GitHub</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <header>
+        <h1>Front Station</h1>
+        <nav>
+            <ul>
+                <li><a href="../login/index.html">Login</a></li>
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../music/music.html">Music Station</a></li>
+                <li><a href="../quiz/quiz.html">Quiz Station</a></li>
+                <li><a href="../game/game.html">Game Station</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Login com GitHub</h2>
+        <button onclick="loginWithGitHub()">Login com GitHub</button>
+    </div>
+
+    <script>
+        function loginWithGitHub() {
+            // Redirecionar o usuário para a página de autenticação do GitHub
+            window.location.href = 'https://github.com/login/oauth/authorize?client_id=SEU_CLIENT_ID&redirect_uri=http://localhost:3000/callback';
+        }
+    </script>
+</body>
+</html>

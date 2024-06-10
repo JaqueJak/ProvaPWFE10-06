@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Station</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Front Station</h1>
+        <nav>
+            <ul>
+                <li><a href="../login/index.html">Login</a></li>
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../music/music.html">Music Station</a></li>
+                <li><a href="../quiz/quiz.html">Quiz Station</a></li>
+                <li><a href="../game/game.html">Game Station</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Front Station</h1>
+        <div class="player">
+            <div class="cover-container">
+                <img id="coverImage" src="../song/tml.jpg" alt="Album Cover">
+            </div>
+            <audio id="audioPlayer" controls>
+            <source src="../song/daylight.mp3" type="audio/mpeg">
+            </audio>
+            <div class="controls">
+            <button id="prevButton">Anterior</button>
+            <button id="playPauseButton">Play/Pause</button>
+            <button id="nextButton">Próximo</button>
+            </div>
+        </div>
+        <div class="playlist">
+            <h2>Playlist</h2>
+            <ul id="playlist">
+                <li data-src="game.mp3" class="song-item">
+                    <img src="../song/gaga.jpg" class="coverImage" alt="Album Cover">
+                    Love Game - Lady Gaga
+                </li>
+                <li data-src="mania.mp3" class="song-item">
+                    <img src="../song/raca.png" class="coverImage" alt="Album Cover">
+                    Cheia de manias - Raça Negra
+                </li>
+                <li data-src="daylight.mp3" class="song-item">
+                    <img src="../song/day.jpg" class="coverImage" alt="Album Cover">
+                    Daylight - David Kushner
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
